@@ -4,7 +4,7 @@ Pure Stories
 setup
 
 ```
-git clone 
+git clone https://github.com/Filbert0o/pure-stories.git
 cd pure-stories
 npm install && cd client && npm install && cd ..
 ```

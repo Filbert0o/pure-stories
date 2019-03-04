@@ -8,12 +8,12 @@ import path from 'path';
 import logger from 'morgan';
 import cors from 'cors';
 
-
 import busboy from 'connect-busboy';
 import busboyBodyParser from 'busboy-body-parser';
 
 // Import routes here
-// import users from './controllers/users';
+import stories from './controllers/stories';
+import authors from './controllers/authors';
 
 // Create our app instances
 const app = express();
@@ -41,8 +41,9 @@ app.get('/', (req, res) => {
   res.json({ message: 'Hello, World!' });
 });
 
-//Use Multiple Routes
-// app.use('/api/users', users);
+// Use Multiple Routes
+app.use('/api/stories', stories);
+app.use('/api/authors', authors);
 
 
 app.listen(API_PORT, () => console.log(`Listening on port ${API_PORT}`));

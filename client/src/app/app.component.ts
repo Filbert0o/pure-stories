@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'client';
+  isNavbarCollapsed = false;
+
+  constructor(
+    vcr: ViewContainerRef
+  ) {
+    // sets the root view to be used with notifications
+  }
 }

@@ -13,7 +13,7 @@ export interface IStory {
   favorite: string;
   thumbnail: string;
   rating: number;
-  date: string;
+  datepost: string;
 }
 
 @Injectable()

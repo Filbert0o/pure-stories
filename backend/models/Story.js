@@ -28,7 +28,7 @@ const StorySchema = new Schema({
   rating: {
     type: Number
   },
-  date: {
+  datepost: {
     type: Date,
     default: Date.now
   },

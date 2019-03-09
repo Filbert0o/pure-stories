@@ -6,14 +6,11 @@ import { Observable } from 'rxjs';
 
 export interface IAuthor {
   id: number;
-  category: string[];
-  author: string;
-  title: string;
-  bodyText: string;
-  favorite: string;
-  thumbnail: string;
-  rating: number;
-  date: string;
+  name: string;
+  gender: string;
+  birthdate: string;
+  description: string;
+  avatar: string;
 }
 
 @Injectable()
@@ -23,11 +20,11 @@ export class AuthorsService {
   ) { }
 
   getAuthors(): Observable<IAuthor[]> {
-    return this.http.get<IAuthor[]>('http://localhost:3001/api/stories');
+    return this.http.get<IAuthor[]>('http://localhost:3001/api/authors');
   }
 
   getAuthorById(id: number): Observable<IAuthor> {
-    return this.http.get<IAuthor>(`http://localhost:3001/api/stories/${id}`);
+    return this.http.get<IAuthor>(`http://localhost:3001/api/authors/${id}`);
   }
 
 }

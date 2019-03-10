@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface IStory {
-  id: number;
+  _id: string;
   category: string[];
   author: string;
   title: string;
@@ -26,7 +26,7 @@ export class StoriesService {
     return this.http.get<IStory[]>('http://localhost:3001/api/stories');
   }
 
-  getStoryById(id: number): Observable<IStory> {
+  getStoryById(id: string): Observable<IStory> {
     return this.http.get<IStory>(`http://localhost:3001/api/stories/${id}`);
   }
 

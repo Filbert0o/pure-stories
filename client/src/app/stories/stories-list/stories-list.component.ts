@@ -5,23 +5,22 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stories-list',
-  templateUrl: './stories-list.component.html'
-  // styleUrls: ['./stories-list.component.css']
+  templateUrl: './stories-list.component.html',
+  styleUrls: ['./stories-list.component.scss']
 })
 export class StoriesListComponent implements OnInit, OnDestroy {
   stories: IStory[];
-  constructor(
-    private storiesService: StoriesService,
-    private router: Router
-  ) { }
+  constructor(private storiesService: StoriesService, private router: Router) {}
 
   ngOnInit() {
     console.log('Init in StoriesList');
-    // this.storiesService.getStories()
-    //   .subscribe(
-    //     (stories) => this.stories = stories
-    //   );
-    // this.stories = this.storiesService.getStories();
+    this.storiesService
+      .getStories()
+      .subscribe(stories => (this.stories = stories));
+  }
+
+  goToDetail(id: string): void {
+    this.router.navigate([`stories/${id}`]);
   }
 
   ngOnDestroy(): void {

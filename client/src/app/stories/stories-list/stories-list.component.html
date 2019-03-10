@@ -1,10 +1,17 @@
 <div class="container">
-    <h1>HI THIS IS STORIES</h1>
+    <h1>STORIES</h1>
     <div class="row">
-      <div class="col-md-3"><strong>Story 1</strong></div>
-      <div class="col-md-3"><strong>Story 2</strong></div>
-      <div class="col-md-3"><strong>Story 3</strong></div>
-      <div class="col-md-3"><strong>Story 4</strong></div>
+      <div class="col-md-4" *ngFor="let story of stories">
+        <div>
+          <mat-card class="stories-card" [style.cursor]="'pointer'" (click)="goToDetail(story._id)">
+            <mat-card-header>
+              <mat-card-title>{{ story._id }}</mat-card-title>
+              <mat-card-subtitle>{{ story.author }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="story.thumbnail">
+          </mat-card>
+        </div>
+      </div>
     </div>
 </div>
   

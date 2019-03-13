@@ -4,8 +4,24 @@
 
 <div *ngIf="this.stories" class="container">
   <h1>STORIES</h1>
+  <mat-checkbox class="d-none d-md-block" [(ngModel)]="listMode">List Mode</mat-checkbox>
   <button mat-raised-button class="btn btn-primary" (click)="goToAdd()">Add Story</button>
-  <div class="row">
+
+  <div *ngIf="listMode">
+    <div *ngFor="let story of stories">
+      <div>
+        <mat-card class="stories-card" [style.cursor]="'pointer'" (click)="goToDetail(story._id)">
+          <mat-card-header>
+            <mat-card-title>{{ story.title }}</mat-card-title>
+            <mat-card-subtitle>{{ story.author }}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image [src]="story.thumbnail">
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!listMode" class="row">
     <div class="col-md-4" *ngFor="let story of stories">
       <div>
         <mat-card class="stories-card" [style.cursor]="'pointer'" (click)="goToDetail(story._id)">
@@ -13,10 +29,13 @@
             <mat-card-title>{{ story.title }}</mat-card-title>
             <mat-card-subtitle>{{ story.author }}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image class="story-img" [src]="story.thumbnail">
+          <img mat-card-image [src]="story.thumbnail">
         </mat-card>
       </div>
     </div>
   </div>
+
+
+
 </div>
   

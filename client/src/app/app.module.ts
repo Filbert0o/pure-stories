@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
+import { HomeComponent } from './home/home.component';
 import { StoriesModule } from './stories/stories.module';
 import { AuthorsModule } from './authors/authors.module';
 
@@ -58,9 +59,7 @@ import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -111,9 +110,9 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     CdkTableModule,
     CdkTreeModule,
     DragDropModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

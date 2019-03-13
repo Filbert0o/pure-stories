@@ -18,9 +18,9 @@
 
       <mat-step [stepControl]="avatarFormGroup">
         <form [formGroup]="avatarFormGroup">
-          <ng-template matStepLabel>Avatar Image from Web</ng-template>
+          <ng-template matStepLabel>Avatar Image from Web(Image Address)</ng-template>
           <mat-form-field>
-<input matInput placeholder="Avatar Image" [(ngModel)]="author.avatar" [ngModelOptions]="{standalone: true}">
+            <input matInput placeholder="Avatar Image(Image Address)" [(ngModel)]="author.avatar" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>Back</button>
@@ -32,7 +32,7 @@
       <mat-step [stepControl]="genderFormGroup">
         <form [formGroup]="genderFormGroup">
           <ng-template matStepLabel>Gender</ng-template>
-<mat-radio-group [(ngModel)]="author.gender" [ngModelOptions]="{standalone: true}">
+          <mat-radio-group [(ngModel)]="author.gender" [ngModelOptions]="{standalone: true}">
             <mat-radio-button value="Male">Male</mat-radio-button>
             <mat-radio-button value="Female">Female</mat-radio-button>
             <mat-radio-button value="Not Specified">Not Specified</mat-radio-button>
@@ -48,7 +48,7 @@
         <form [formGroup]="birthdateFormGroup">
           <ng-template matStepLabel>Birth Date</ng-template>
           <mat-form-field>
-<input matInput [matDatepicker]="picker" placeholder="Birthdate" [(ngModel)]="author.birthdate" [ngModelOptions]="{standalone: true}">
+            <input matInput [matDatepicker]="picker" placeholder="Birthdate" [(ngModel)]="author.birthdate" [ngModelOptions]="{standalone: true}">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
@@ -63,8 +63,8 @@
         <form [formGroup]="descriptionFormGroup">
           <ng-template matStepLabel>Your Description and Details</ng-template>
           <mat-form-field>
-<textarea matInput placeholder="Description, What Stories have you made, post a link to your social media, etc... " [(ngModel)]="author.description"
-  [ngModelOptions]="{standalone: true}"></textarea>
+            <textarea matInput placeholder="Description, What Stories have you made, post a link to your social media, etc... " [(ngModel)]="author.description"
+              [ngModelOptions]="{standalone: true}"></textarea>
           </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>Back</button>
@@ -79,7 +79,7 @@
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button (click)="stepper.reset()">Reset</button>
-<button class="btn btn-primary" (click)="addAuthor()">Save</button>
+          <button class="btn btn-primary" (click)="addAuthor()">Save</button>
         </div>
       </mat-step>
 

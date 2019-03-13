@@ -1,0 +1,29 @@
+.story {
+  // height: 400px;
+  width: auto;
+  opacity: 0.5;
+  padding: 10px;
+  color: #404040;
+  font-size: 6em;
+  border: .2em solid black;
+  &:hover {
+    background-color: #404040;
+    color: #e5e5e5;
+    opacity: 1;
+  }
+}
+
+.author {
+  // height: 400px;
+  width: auto;
+  opacity:0.5;
+  padding: 10px;
+  color: #404040;
+  font-size: 6em;
+  border: .2em solid black;
+  &:hover {
+    background-color: #404040;
+    color: #e5e5e5;
+    opacity: 1;
+  }
+}

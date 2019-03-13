@@ -8,9 +8,12 @@
       <ng-template mat-tab-label>About</ng-template>
       <div class="">
         <h3 class="col-lg-6">Author: {{ story.author }}</h3>
-        <h5 class="col-lg-6">Date Posted: {{ story.datepost }}</h5>
+        <h5 class="col-lg-6">Date Posted: {{ story.datepost | date: 'short' }}</h5>
         <h5 *ngIf="story.favorite" class="col-lg-6">Someone Has Favorited This Story!</h5>
-        <h5 class="col-lg-6">Rating: {{ story.rating }}</h5>
+        <h5 class="col-lg-6"><span>Rating</span><mat-progress-bar mode="determinate" [value]="story.rating * 20">
+          </mat-progress-bar>
+        </h5>
+        
         <mat-chip-list>
           <mat-chip>{{ story.category }}</mat-chip>
         </mat-chip-list>

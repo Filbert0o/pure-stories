@@ -7,11 +7,20 @@
     left: 0;
     right: 0;
   }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .nav-color {
+    color: #E5E5E5;
+  }
   
-  .example-is-mobile .example-toolbar {
-    position: fixed;
-    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-    z-index: 2;
+
+
+  .menu-toolbar {
+    background-color: #404040;
+    color: #E5E5E5;
   }
   
   h1.example-app-name {
@@ -29,6 +38,12 @@
        `<body>` to be our scrolling element for mobile layouts. */
     flex: 1 0 auto;
   }
+
+  .dark-style {
+    background-color: #404040 !important;
+    color: #FFFFFF !important;
+  }
+
   
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
@@ -45,4 +60,3 @@ body {
   font-size: 8pt;
   float: right;
 }
-

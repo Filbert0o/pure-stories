@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class StoriesListComponent implements OnInit, OnDestroy {
   stories: IStory[];
   isLoading = true;
+  listMode = false;
   constructor(private storiesService: StoriesService, private router: Router) {}
 
   ngOnInit() {

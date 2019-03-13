@@ -20,8 +20,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
-
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { StoriesListComponent } from './stories-list/stories-list.component';
 import { StoriesDetailComponent, DeleteDialogComponent } from './stories-detail/stories-detail.component';
@@ -52,6 +51,7 @@ import { StoriesFormComponent } from './stories-form/stories-form.component';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
+    MatProgressBarModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule

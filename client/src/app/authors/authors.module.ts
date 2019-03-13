@@ -14,6 +14,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AuthorsListComponent } from './authors-list/authors-list.component';
 import { AuthorsFormComponent } from './authors-form/authors-form.component';
@@ -34,7 +35,8 @@ import { AuthorsFormComponent } from './authors-form/authors-form.component';
     MatCheckboxModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   providers: [AuthorsService]
 })

@@ -1,16 +1,24 @@
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-  <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+<div class="example-container">
+  <mat-toolbar class="menu-toolbar">
+    <button mat-icon-button class="d-md-none" (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <h1 class="example-app-name">PureStories</h1>
+    <span class="spacer"></span>
+    <a class="nav-link d-none d-md-block" routerLink="/stories">Stories</a>
+    <a class="nav-link d-none d-md-block" routerLink="/authors">Authors</a>
+    <button class="d-md-none" mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <mat-chip mat-menu-item><a class="nav-link" routerLink="/stories">Stories</a></mat-chip>
+      <mat-chip mat-menu-item><a class="nav-link" routerLink="/authors">Authors</a></mat-chip>
+    </mat-menu>
   </mat-toolbar>
 
-  <mat-sidenav-container class="example-sidenav-container"
-                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+  <mat-sidenav-container class="example-sidenav-container ">
+    <mat-sidenav #snav mode="over">
       <mat-nav-list>
-          <a class="nav-link" routerLink="/stories">Stories</a>
-          <a class="nav-link" routerLink="/authors">Authors</a>
+          <a class="nav-link nav-color" routerLink="/stories">Stories</a>
+          <a class="nav-link nav-color" routerLink="/authors">Authors</a>
       </mat-nav-list>
     </mat-sidenav>
 
@@ -21,9 +29,6 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-  
-  
-  
   
 
 <!-- <div class="router container">

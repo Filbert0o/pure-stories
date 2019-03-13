@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class AuthorsListComponent implements OnInit, OnDestroy {
   authors: IAuthor[];
   author: IAuthor;
+  spinValue: number;
   isLoading = true;
 
   constructor(private authorsService: AuthorsService, private router: Router, private toastr: ToastrService) {}
@@ -24,6 +25,7 @@ export class AuthorsListComponent implements OnInit, OnDestroy {
   getAuthors() {
     this.authorsService.getAuthors().subscribe(authors => {
       this.authors = authors;
+      this.spinValue = authors.length;
       this.isLoading = false;
     });
   }

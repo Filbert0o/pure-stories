@@ -13,7 +13,7 @@
             <mat-icon color="warn" [style.cursor]="'pointer'" class="float-right" (click)="deleteAuthor(author)">delete</mat-icon>
             <img mat-card-avatar [src]="author.avatar" />
             <mat-card-title>{{ author.name }}</mat-card-title>
-            <mat-card-subtitle>BirthDate: {{ author.birthdate }}  || Gender: {{ author.gender }}</mat-card-subtitle>
+            <mat-card-subtitle>BirthDate: {{ author.birthdate | date: 'mediumDate'}} || Gender: {{ author.gender }}</mat-card-subtitle>
           </mat-card-header>
           <hr />
           <mat-card-content>
@@ -22,5 +22,7 @@
         </mat-card>
       </div>
     </div>
+    <div class="text-center">{{ spinValue }} / 100 Authors Joined</div>
+    <mat-progress-spinner class="center-spin" color="primary" mode="determinate" [value]="spinValue"></mat-progress-spinner>
   </div>
 </div>

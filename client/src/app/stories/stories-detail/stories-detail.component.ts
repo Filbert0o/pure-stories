@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StoriesService, IStory } from '../stories.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogConfig,  MAT_DIALOG_DATA } from '@angular/material';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-stories-detail',
@@ -47,11 +48,13 @@ export class DeleteDialogComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public story: IStory,
     private storiesService: StoriesService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
   deleteStory(story: IStory) {
     this.storiesService.deleteStory(story).subscribe(() => {
       this.story = story;
+      this.toastr.success(`${story.title} Deleted`);
       this.router.navigate(['stories']);
     });
   }

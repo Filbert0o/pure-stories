@@ -30,10 +30,10 @@ router.get('/:id', (req, res) => {
 router.post('/create', (req, res) => {
   const newAuthor = new Author({
     name: req.body.name,
-    gender: req.body.gender,
-    birthdate: req.body.birthdate,
-    description: req.body.description,
-    avatar: req.body.avatar,
+    gender: req.body.gender ? req.body.gender : 'Not Specified',
+    birthdate: req.body.birthdate ? req.body.birthdate : Date.now(),
+    description: req.body.description ? req.body.description : 'Vague',
+    avatar: req.body.avatar ? req.body.avatar : 'http://asapct.org/wp-content/uploads/2016/02/blank-avatar.jpg',
   });
 
   newAuthor.save()

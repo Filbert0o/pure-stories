@@ -1,0 +1,88 @@
+<div class="">
+  <div *ngIf="this.author" class="well well-sm">
+    <h4>Author Form</h4>
+
+    <mat-vertical-stepper #stepper>
+
+      <mat-step [stepControl]="nameFormGroup">
+        <form [formGroup]="nameFormGroup">
+          <ng-template matStepLabel>Fill out your name</ng-template>
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Your Name" formControlName="nameControl" required [(ngModel)]="author.name">
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="avatarFormGroup">
+        <form [formGroup]="avatarFormGroup">
+          <ng-template matStepLabel>Avatar Image from Web</ng-template>
+          <mat-form-field>
+<input matInput placeholder="Avatar Image" [(ngModel)]="author.avatar" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="genderFormGroup">
+        <form [formGroup]="genderFormGroup">
+          <ng-template matStepLabel>Gender</ng-template>
+<mat-radio-group [(ngModel)]="author.gender" [ngModelOptions]="{standalone: true}">
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+            <mat-radio-button value="Not Specified">Not Specified</mat-radio-button>
+          </mat-radio-group>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="birthdateFormGroup">
+        <form [formGroup]="birthdateFormGroup">
+          <ng-template matStepLabel>Birth Date</ng-template>
+          <mat-form-field>
+<input matInput [matDatepicker]="picker" placeholder="Birthdate" [(ngModel)]="author.birthdate" [ngModelOptions]="{standalone: true}">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="descriptionFormGroup">
+        <form [formGroup]="descriptionFormGroup">
+          <ng-template matStepLabel>Your Description and Details</ng-template>
+          <mat-form-field>
+<textarea matInput placeholder="Description, What Stories have you made, post a link to your social media, etc... " [(ngModel)]="author.description"
+  [ngModelOptions]="{standalone: true}"></textarea>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        You are now done.
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+<button class="btn btn-primary" (click)="addAuthor()">Save</button>
+        </div>
+      </mat-step>
+
+    </mat-vertical-stepper>
+  </div>
+</div>

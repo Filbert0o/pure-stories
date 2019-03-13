@@ -53,16 +53,20 @@ export class StoriesFormComponent implements OnInit {
     }
     this.storiesService.addStory(this.story)
       .subscribe((story) => {
-        this.toastr.success('Story Saved!');
+        this.toastr.success(`${story.title} Saved`);
         this.router.navigate(['stories']);
       });
   }
 
   editStory(story: IStory) {
+    if (!this.formValid()) {
+      this.toastr.error('Form Invalid');
+      return;
+    }
     this.storiesService.editStory(story).subscribe(
       () => {
         this.story = story;
-        this.toastr.success('Story Updated!');
+        this.toastr.success(`${story.title} Updated!`);
         window.location.reload();
       }
     );

@@ -5,12 +5,14 @@ import { StoriesListComponent } from './stories/stories-list/stories-list.compon
 import { StoriesDetailComponent } from './stories/stories-detail/stories-detail.component';
 import { StoriesFormComponent } from './stories/stories-form/stories-form.component';
 import { AuthorsListComponent } from './authors/authors-list/authors-list.component';
+import { AuthorsFormComponent } from './authors/authors-form/authors-form.component';
 
 const appRoutes: Routes = [
   { path: 'stories', component: StoriesListComponent },
   { path: 'stories/form', component: StoriesFormComponent },
   { path: 'stories/:storyId', component: StoriesDetailComponent },
-  { path: 'authors', component: AuthorsListComponent }
+  { path: 'authors', component: AuthorsListComponent },
+  { path: 'authors/form', component: AuthorsFormComponent }
 ];
 
 @NgModule({

@@ -2,26 +2,46 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthorsService, IAuthor } from '../authors.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-authors-list',
-  templateUrl: './authors-list.component.html'
-  // styleUrls: ['./authors-list.component.css']
+  templateUrl: './authors-list.component.html',
+  styleUrls: ['./authors-list.component.scss']
 })
 export class AuthorsListComponent implements OnInit, OnDestroy {
   authors: IAuthor[];
-  constructor(
-    private authorsService: AuthorsService,
-    private router: Router
-  ) { }
+  author: IAuthor;
+  isLoading = true;
+
+  constructor(private authorsService: AuthorsService, private router: Router, private toastr: ToastrService) {}
 
   ngOnInit() {
     console.log('Init in AuthorsList');
-    // this.authorsService.getAuthors()
-    //   .subscribe(
-    //     (authors) => this.authors = authors
-    //   );
-    // this.authors = this.authorsService.getAuthors();
+    this.getAuthors();
+  }
+
+  getAuthors() {
+    this.authorsService.getAuthors().subscribe(authors => {
+      this.authors = authors;
+      this.isLoading = false;
+    });
+  }
+
+  goToDetail(id: string): void {
+    this.router.navigate([`authors/${id}`]);
+  }
+
+  goToAdd(): void {
+    this.router.navigate(['authors/form']);
+  }
+
+  deleteAuthor(author: IAuthor) {
+    this.authorsService.deleteAuthor(author).subscribe(() => {
+      this.author = author;
+      this.toastr.success(`Deleted ${author.name}`);
+      this.getAuthors();
+    });
   }
 
   ngOnDestroy(): void {

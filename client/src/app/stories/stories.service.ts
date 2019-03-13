@@ -21,28 +21,28 @@ export class StoriesService {
   constructor(private http: HttpClient) {}
 
   getStories(): Observable<IStory[]> {
-    return this.http.get<IStory[]>('http://localhost:3001/api/stories');
+    return this.http.get<IStory[]>('/api/stories');
   }
 
   getStoryById(id: string): Observable<IStory> {
-    return this.http.get<IStory>(`http://localhost:3001/api/stories/${id}`);
+    return this.http.get<IStory>(`/api/stories/${id}`);
   }
 
   addStory(story: IStory): Observable<IStory> {
     return this.http.post<IStory>(
-      'http://localhost:3001/api/stories/create',
+      '/api/stories/create',
       story
     );
   }
 
   editStory(story: IStory): Observable<any> {
     return this.http.put(
-      `http://localhost:3001/api/stories/${story._id}`,
+      `/api/stories/${story._id}`,
       story
     );
   }
 
   deleteStory(story: IStory): Observable<any> {
-    return this.http.delete(`http://localhost:3001/api/stories/${story._id}`);
+    return this.http.delete(`/api/stories/${story._id}`);
   }
 }

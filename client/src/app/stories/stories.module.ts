@@ -19,6 +19,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 import { StoriesListComponent } from './stories-list/stories-list.component';
@@ -47,6 +49,8 @@ import { StoriesFormComponent } from './stories-form/stories-form.component';
     MatCheckboxModule,
     MatSelectModule,
     MatSlideToggleModule,
+    MatButtonModule,
+    MatIconModule,
     MatDialogModule,
     CommonModule,
     FormsModule,

@@ -1,10 +1,12 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
+mongoose.Schema.Types.Boolean.convertToFalse.add('');
 
 // Create Schema
 const StorySchema = new Schema({
   category: {
-    type: [String]
+    type: String,
+    default: 'no tags'
   },
   author: {
     type: String,
@@ -23,10 +25,12 @@ const StorySchema = new Schema({
     default: false
   },
   thumbnail: {
-    type: String
+    type: String,
+    default: 'https://www.readlightnovel.org/assets/images/noimage.jpg'
   },
   rating: {
-    type: Number
+    type: Number,
+    default: 5
   },
   datepost: {
     type: Date,

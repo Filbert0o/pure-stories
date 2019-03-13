@@ -12,6 +12,9 @@
   "author": "Timothy Filbert",
   "license": "ISC",
   "dependencies": {
+    "@angular/animations": "^7.2.8",
+    "@angular/cdk": "^7.3.4",
+    "@angular/material": "^7.3.4",
     "async": "^2.6.1",
     "aws-sdk": "^2.327.0",
     "babel-cli": "^6.26.0",

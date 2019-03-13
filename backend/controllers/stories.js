@@ -27,14 +27,14 @@ router.get('/:id', (req, res) => {
 
 router.post('/create', (req, res) => {
   const newStory = new Story({
-    category: req.body.category,
+    category: req.body.category ? req.body.category : 'no tag',
     author: req.body.author,
     title: req.body.title,
     bodyText: req.body.bodyText,
-    favorite: req.body.favorite,
-    thumbnail: req.body.thumbnail,
-    rating: req.body.rating,
-    datepost: req.body.datepost
+    favorite: req.body.favorite ? req.body.favorite : false,
+    thumbnail: req.body.thumbnail ? req.body.thumbnail : 'https://www.readlightnovel.org/assets/images/noimage.jpg',
+    rating: req.body.rating ? req.body.rating : 5,
+    datepost: req.body.datepost ? req.body.datepost : Date.now()
   });
 
   newStory.save()
@@ -57,8 +57,8 @@ router.delete('/:id', (req, res) => {
     );
 });
 
-router.put('/update',(req, res) => {
-  Story.findByIdAndUpdate(req.body._id, req.body, function (err, user) {
+router.put('/:id',(req, res) => {
+  Story.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
     if (err) throw err;
 
     res.json({

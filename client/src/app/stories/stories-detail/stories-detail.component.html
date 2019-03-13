@@ -1,16 +1,18 @@
-<div *ngIf="this.story">
-  <img class="text-center"  [src]="story.thumbnail" />
-  <h1 class="text-center">{{ story.title }}</h1>
+<div *ngIf="this.isLoading"><mat-spinner></mat-spinner></div>
 
-  <mat-tab-group mat-align-tabs="center">
+<div *ngIf="this.story">
+<img class="mx-auto d-block" [src]="story.thumbnail" />
+  <h1 class="text-center">{{ story.title }}</h1>
+  <mat-tab-group class mat-align-tabs="center">
     <mat-tab>
       <ng-template mat-tab-label>About</ng-template>
       <div class="">
         <h3 class="col-lg-6">Author: {{ story.author }}</h3>
         <h5 class="col-lg-6">Date Posted: {{ story.datepost }}</h5>
         <h5 *ngIf="story.favorite" class="col-lg-6">Someone Has Favorited This Story!</h5>
+        <h5 class="col-lg-6">Rating: {{ story.rating }}</h5>
         <mat-chip-list>
-          <mat-chip *ngFor="let c of story.category">{{ c }}</mat-chip>
+          <mat-chip>{{ story.category }}</mat-chip>
         </mat-chip-list>
       </div>
     </mat-tab>
@@ -19,16 +21,15 @@
       <ng-template mat-tab-label>Story</ng-template>
       <div>{{ story.bodyText }}</div>
     </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>Edit</ng-template>
+      <button mat-button-raised class="btn btn-sm btn-danger ml-1 float-right" (click)="openDialog()">
+        Delete This Story
+      </button>
+      <div *ngIf="this.story" class="well well-sm">
+        <app-stories-form [storyId]="story._id"></app-stories-form>
+      </div>
+    </mat-tab>
   </mat-tab-group>
 </div>
-  
-
-<!-- id: string;
-category: string[];
-author: string;
-title: string;
-bodyText: string;
-favorite: string;
-thumbnail: string;
-rating: number;
-datepost: string; -->

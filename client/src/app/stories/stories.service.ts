@@ -18,9 +18,7 @@ export interface IStory {
 
 @Injectable()
 export class StoriesService {
-  constructor(
-    private http: HttpClient,
-  ) { }
+  constructor(private http: HttpClient) {}
 
   getStories(): Observable<IStory[]> {
     return this.http.get<IStory[]>('http://localhost:3001/api/stories');
@@ -30,4 +28,21 @@ export class StoriesService {
     return this.http.get<IStory>(`http://localhost:3001/api/stories/${id}`);
   }
 
+  addStory(story: IStory): Observable<IStory> {
+    return this.http.post<IStory>(
+      'http://localhost:3001/api/stories/create',
+      story
+    );
+  }
+
+  editStory(story: IStory): Observable<any> {
+    return this.http.put(
+      `http://localhost:3001/api/stories/${story._id}`,
+      story
+    );
+  }
+
+  deleteStory(story: IStory): Observable<any> {
+    return this.http.delete(`http://localhost:3001/api/stories/${story._id}`);
+  }
 }

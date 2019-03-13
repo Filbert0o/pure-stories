@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+
+import { StoriesModule } from './stories/stories.module';
+import { AuthorsModule } from './authors/authors.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {
@@ -54,9 +57,6 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 
-import { StoriesModule } from './stories/stories.module';
-import { AuthorsModule } from './authors/authors.module';
-
 @NgModule({
   declarations: [
     AppComponent
@@ -65,6 +65,7 @@ import { AuthorsModule } from './authors/authors.module';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     StoriesModule,

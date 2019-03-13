@@ -1,0 +1,80 @@
+<div class="">
+  <div class="">
+    <div *ngIf="this.story" class="well well-sm">
+      <h4>Story Form</h4>
+
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="Author" [formControl]="authorFormControl" [(ngModel)]="story.author">
+        <mat-error *ngIf="authorFormControl.hasError('required')">
+          Author is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="Title" [formControl]="titleFormControl" [(ngModel)]="story.title">
+        <mat-error *ngIf="titleFormControl.hasError('required')">
+          Title is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <textarea matInput type="text" placeholder="Story" [formControl]="storyFormControl" [(ngModel)]="story.bodyText"></textarea>
+        <mat-error *ngIf="storyFormControl.hasError('required')">
+          Story is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="Link to Image" [(ngModel)]="story.thumbnail">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="Category" [(ngModel)]="story.category">
+      </mat-form-field>
+
+      <div class="row">
+        <mat-slide-toggle class="col-md-4" [(ngModel)]="story.favorite">Favorite?</mat-slide-toggle>
+
+        
+        <mat-form-field class="col-md-4">
+          <mat-select placeholder="Rating" [(ngModel)]="story.rating">
+            <mat-option>None</mat-option>
+            <mat-option value=1>1</mat-option>
+            <mat-option value=2>2</mat-option>
+            <mat-option value=3>3</mat-option>
+            <mat-option value=4>4</mat-option>
+            <mat-option value=5>5</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="col-md-4">
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="story.datepost">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <br>
+      <button *ngIf="this.storyId" class="btn btn-primary" (click)="editStory(this.story)">Update</button>
+      <button *ngIf="!this.storyId" class="btn btn-primary" (click)="addStory()">Save</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- _id: string;
+category: string[];
+author: string;
+title: string;
+bodyText: string;
+favorite: string;
+thumbnail: string;
+rating: number;
+datepost: string; -->
+
+<!-- Datepicker
+● Input
+● Radio
+● Checkbox
+● Select
+● Slide toggle -->

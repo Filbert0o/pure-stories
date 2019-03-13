@@ -10,17 +10,23 @@ import { Router } from '@angular/router';
 })
 export class StoriesListComponent implements OnInit, OnDestroy {
   stories: IStory[];
+  isLoading = true;
   constructor(private storiesService: StoriesService, private router: Router) {}
 
   ngOnInit() {
     console.log('Init in StoriesList');
-    this.storiesService
-      .getStories()
-      .subscribe(stories => (this.stories = stories));
+    this.storiesService.getStories().subscribe(stories => {
+      this.stories = stories;
+      this.isLoading = false;
+    });
   }
 
   goToDetail(id: string): void {
     this.router.navigate([`stories/${id}`]);
+  }
+
+  goToAdd(): void {
+    this.router.navigate(['stories/form']);
   }
 
   ngOnDestroy(): void {

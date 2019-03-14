@@ -39,7 +39,6 @@ bower_components
 modules.xml
 *.ipr
 .eslintrc
-dist/
 
 # Folder config file
 Desktop.ini

@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "10.11.0",
+    "npm": "6.4.1"
+  },
   "scripts": {
     "ng": "ng",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,7 +19,6 @@
   "author": "Timothy Filbert",
   "license": "ISC",
   "dependencies": {
-    "@angular-devkit/build-angular": "~0.8.0",
     "@angular/animations": "^6.1.10",
     "@angular/cdk": "^7.3.4",
     "@angular/cli": "~6.2.4",

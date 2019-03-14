@@ -5,7 +5,7 @@
   "projects": {
     "client": {
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "client/src",
       "projectType": "application",
       "prefix": "app",
       "schematics": {
@@ -18,18 +18,18 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/client",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "index": "client/src/index.html",
+            "main": "client/src/main.ts",
+            "polyfills": "client/src/polyfills.ts",
+            "tsConfig": "client/src/tsconfig.app.json",
             "assets": [
-              "src/assets"
+              "client/src/assets"
             ],
             "styles": [
               {
                 "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
               },
-              "src/styles.scss",
+              "client/src/styles.scss",
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/nova-light/theme.css",
@@ -41,8 +41,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "client/src/environments/environment.ts",
+                  "with": "client/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -77,19 +77,19 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
+            "main": "client/src/test.ts",
+            "polyfills": "client/src/polyfills.ts",
+            "tsConfig": "client/src/tsconfig.spec.json",
+            "karmaConfig": "client/src/karma.conf.js",
             "styles": [
               {
                 "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
               },
-              "src/styles.scss"
+              "client/src/styles.scss"
             ],
             "scripts": [],
             "assets": [
-              "src/assets"
+              "client/src/assets"
             ]
           }
         },
@@ -97,8 +97,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "client/src/tsconfig.app.json",
+              "client/src/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

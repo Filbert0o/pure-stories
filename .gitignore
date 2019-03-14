@@ -38,6 +38,8 @@ bower_components
 *.iml
 modules.xml
 *.ipr
+.eslintrc
+dist/
 
 # Folder config file
 Desktop.ini

@@ -18,7 +18,7 @@ import authors from './controllers/authors';
 // Create our app instances
 const app = express();
 
-app.use(express.static(path.join(__dirname, '../dist/pure-stories')));
+app.use(express.static(path.join(__dirname, '../dist/client')));
 
 
 // Set our port to either a predetermined port number if you have set it up, or 3001
@@ -49,7 +49,7 @@ app.use('/api/stories', stories);
 app.use('/api/authors', authors);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/pure-stories/index.html'));
+  res.sendFile(path.join(__dirname, '../dist/client/index.html'));
 });
 
 

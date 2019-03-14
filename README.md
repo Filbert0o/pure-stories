@@ -1,6 +1,7 @@
 # pure-stories
 Pure Stories
 
+Live site: https://pure-stories.herokuapp.com/
 setup
 
 ```

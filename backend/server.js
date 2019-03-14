@@ -43,6 +43,10 @@ app.use(busboyBodyParser());
 // app.get('/', (req, res) => {
 //   res.json({ message: 'Hello, World!' });
 // });
+const WORKERS = process.env.WEB_CONCURRENCY || 1;
+for (let i = 0; i < WORKERS; i++) {
+  cluster.fork();
+}
 
 // Use Multiple Routes
 app.use('/api/stories', stories);

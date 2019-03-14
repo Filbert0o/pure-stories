@@ -37,9 +37,9 @@ app.use(busboyBodyParser());
 // app.use(passport.initialize());
 
 // Hello World at '/'
-app.get('/', (req, res) => {
-  res.json({ message: 'Hello, World!' });
-});
+// app.get('/', (req, res) => {
+//   res.json({ message: 'Hello, World!' });
+// });
 
 // Use Multiple Routes
 app.use('/api/stories', stories);

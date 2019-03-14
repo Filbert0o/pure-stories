@@ -7,8 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:server": "cd backend && nodemon server.js --exec babel-node --presets es2015,stage-0",
     "start:client": "cd client && ng serve --proxy-config proxy.conf.json --open",
+    "start:clientprod": "cd client && ng build --prod",
     "start:dev": "concurrently \"npm run start:server\" \"npm run start:client\"",
-    "start": "concurrently \"npm run start:server\" \"cd client && ng build --prod --aot=false\""
+    "start": "concurrently \"npm run start:server\" \"npm run start:clientprod\""
   },
   "author": "Timothy Filbert",
   "license": "ISC",

@@ -1,7 +1,9 @@
 <div class="example-container">
   <mat-toolbar class="menu-toolbar">
     <button mat-icon-button class="d-md-none" (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">PureStories</h1>
+    <a class="nav-link" routerLink="/">
+      <h1 class="app-name">PureStories</h1>
+    </a>
     <span class="spacer"></span>
     <a class="nav-link d-none d-md-block" routerLink="/stories">Stories</a>
     <a class="nav-link d-none d-md-block" routerLink="/authors">Authors</a>

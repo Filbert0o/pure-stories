@@ -14,6 +14,20 @@
       <mat-chip mat-menu-item><a class="nav-link" routerLink="/stories">Stories</a></mat-chip>
       <mat-chip mat-menu-item><a class="nav-link" routerLink="/authors">Authors</a></mat-chip>
     </mat-menu>
+
+    <span class="toolbar-spacer"></span>
+    
+    <ng-template [ngIf]="!auth.loggingIn">
+      <button *ngIf="!auth.loggedIn" class='btn btn-primary' (click)="auth.login()">Log In</button>
+      <span *ngIf="auth.loggedIn && auth.userProfile">
+        {{ auth.userProfile.name }}
+        <a class="" uiSref="profile" uiSrefActive="active">
+          <mat-icon class="toolbar-icon account">account_circle</mat-icon>
+        </a>
+        <span class="divider">|</span>
+        <a [style.cursor]="'pointer'" (click)="auth.logout()">Log Out</a>
+      </span>
+    </ng-template>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container ">

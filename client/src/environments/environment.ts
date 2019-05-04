@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: "http://localhost:3000",
+  auth: {
+    url: "https://gojitodo.auth0.com",
+    clientID: "ENfu996a2uaw5LDuGq56X1roXlezz61X",
+    domain: "gojitodo.auth0.com",
+    audience: "http://localhost:3000/api",
+    redirect: "http://localhost:4500/callback",
+    scope: "openid profile user_metadata app_metadata email"
+  }
 };
 
 /*
